@@ -104,6 +104,8 @@ class GameScene: SKScene {
             finalScore.zPosition = 1
             addChild(finalScore)
             
+            run(SKAction.playSoundFileNamed("gameOver.m4a", waitForCompletion: false))
+            
             return
         }
         
