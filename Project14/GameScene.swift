@@ -59,7 +59,6 @@ class GameScene: SKScene {
             
             if node.name == "charFriend" {
                 // they shouldn't have whacked this penguin
-                
                 score -= 5
                 
                 run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
@@ -86,7 +85,7 @@ class GameScene: SKScene {
     func createEnemy() {
         numRounds += 1
         
-        if numRounds >= 5 {
+        if numRounds >= 30 {
             for slot in slots {
                 slot.hide()
             }
