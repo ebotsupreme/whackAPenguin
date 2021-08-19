@@ -10,6 +10,7 @@ import SpriteKit
 class GameScene: SKScene {
     var slots = [WhackSlot]()
     var gameScore: SKLabelNode!
+    var finalScore: SKLabelNode!
     
     var popupTime = 0.85
     var numRounds = 0
@@ -17,6 +18,7 @@ class GameScene: SKScene {
     var score = 0 {
         didSet {
             gameScore.text = "Score: \(score)"
+//            finalScore.text = "FInal Score: \(score)"
         }
     }
     
@@ -84,7 +86,7 @@ class GameScene: SKScene {
     func createEnemy() {
         numRounds += 1
         
-        if numRounds >= 30 {
+        if numRounds >= 5 {
             for slot in slots {
                 slot.hide()
             }
@@ -93,6 +95,15 @@ class GameScene: SKScene {
             gameOver.position = CGPoint(x: 512, y: 384)
             gameOver.zPosition = 1
             addChild(gameOver)
+            
+            finalScore = SKLabelNode(fontNamed: "Chalkduster")
+            finalScore.text = "FInal Score: \(score)"
+            finalScore.position = CGPoint(x: 512, y: 300)
+            finalScore.fontSize = 48
+            finalScore.horizontalAlignmentMode = .center
+            finalScore.zPosition = 1
+            addChild(finalScore)
+            
             return
         }
         
